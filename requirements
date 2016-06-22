@@ -1,7 +1,6 @@
+scipy
 numpy
 pandas
 sklearn
-easy_install statsmodels
-install R base
 rpy2
 flask
