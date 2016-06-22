@@ -2,15 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9083f693-edb6-410a-a4c0-d8ac1c9bca27" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outlier/BaseOutlier.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outlier/OneClassSVM.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outlier/SHESD.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outlier/STLWithMedianRemoval.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/outlier/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/STLMedianRemoval.ipynb" afterPath="$PROJECT_DIR$/STLMedianRemoval.ipynb" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experiments/TestEngine.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/service/BaseEngine.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/auto_load.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/TrafficFeeder.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/data/webTraffic.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/ACOEstimator.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/BruteForceGridSearchACO.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/BruteForceGridSearchGA.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/FeedFlow.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/FuzzyStep.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/GAEstimator.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/NeuralFlow.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/OptimizerNNEstimator.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/TrainObject.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/estimators/periodicity.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/experiments/ExperimentACONN.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/experiments/ExperimentGANN.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/experiments/initializer.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/GridSearchACO.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/GridSearchACONN.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/GridSearchGA.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/GridSearchGANN.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/GridSearchNN.ipynb" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/GridSearchNNPD.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/nnGridGeneticPeriodic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/nnGridGennetic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/nnGridSearch.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/nnGridSearchPeriodic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/grid_search/nnPeriodicGenetic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/io_utils/GFeeder.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/io_utils/MetricFeeder.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/io_utils/NumLoad.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/io_utils/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/preprocessing/DataSampling.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/preprocessing/FuzzyProcessor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/preprocessing/GenerateFromSQLite.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/preprocessing/GenerateTraffic.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/preprocessing/MinMaxScalerIO.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/SlidingWindowUtil.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/SplitTrainTest.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/utils/initializer.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/estimators/__init__.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/grid_search/__init__.py" afterPath="$PROJECT_DIR$/config/ConfigReader.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/outlier/STLWithMedianRemoval.py" afterPath="$PROJECT_DIR$/outlier/STL.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/preprocessing/__init__.py" afterPath="$PROJECT_DIR$/config/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/InfluxDBInput-checkpoint.ipynb" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/InfluxDBInput-checkpoint.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ConvertToInflux.ipynb" afterPath="$PROJECT_DIR$/ConvertToInflux.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InfluxDBInput.ipynb" afterPath="$PROJECT_DIR$/InfluxDBInput.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experiments/STLRemoval.py" afterPath="$PROJECT_DIR$/experiments/STLRemoval.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/outlier/BaseOutlier.py" afterPath="$PROJECT_DIR$/outlier/BaseOutlier.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/outlier/OneClassSVM.py" afterPath="$PROJECT_DIR$/outlier/OneClassSVM.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/outlier/SHESD.py" afterPath="$PROJECT_DIR$/outlier/SHESD.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements" afterPath="$PROJECT_DIR$/requirements" />
     </list>
     <ignored path="CloudWatch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,48 +76,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="STLRemoval.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experiments/STLRemoval.py">
+      <file leaf-file-name="detect_ts.py" pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/lib/python2.7/dist-packages/pyculiarity/detect_ts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SHESD.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/outlier/SHESD.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseOutlier.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/outlier/BaseOutlier.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding>
-                <element signature="e#45#105#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="frame.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/frame.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="2356" column="0" selection-start-line="2356" selection-start-column="0" selection-end-line="2356" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestEngine.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/experiments/TestEngine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseEngine.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/BaseEngine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+              <folding>
+                <element signature="e#22#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,20 +126,28 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/STLMedianRemoval.ipynb" />
-        <option value="$PROJECT_DIR$/outlier/OneClassSVM.py" />
         <option value="$PROJECT_DIR$/outlier/BaseEngine.py" />
         <option value="$PROJECT_DIR$/outlier/STLWithMedianRemoval.py" />
-        <option value="$PROJECT_DIR$/experiments/STLRemoval.py" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/requirements" />
+        <option value="$PROJECT_DIR$/config/ConfigReader.py" />
+        <option value="$PROJECT_DIR$/outlier/SeasonalOutlier.py" />
+        <option value="$PROJECT_DIR$/service/BaseOutlier.py" />
+        <option value="$PROJECT_DIR$/utils/auto_load.py" />
         <option value="$PROJECT_DIR$/outlier/SHESD.py" />
+        <option value="$PROJECT_DIR$/experiments/STLRemoval.py" />
+        <option value="$PROJECT_DIR$/outlier/STL.py" />
         <option value="$PROJECT_DIR$/outlier/BaseOutlier.py" />
+        <option value="$PROJECT_DIR$/outlier/OneClassSVM.py" />
+        <option value="$PROJECT_DIR$/experiments/TestEngine.py" />
+        <option value="$PROJECT_DIR$/service/BaseEngine.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="-4" />
-    <option name="width" value="1368" />
-    <option name="height" value="711" />
+    <option name="y" value="24" />
+    <option name="width" value="1366" />
+    <option name="height" value="682" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -133,7 +174,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -154,10 +195,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
-  <component name="RunManager" selected="Python.STLRemoval">
+  <component name="RunManager" selected="Python.TestEngine">
     <configuration default="false" name="STLRemoval" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -188,6 +229,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="CloudWatch" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/outlier/BaseOutlier.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestEngine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experiments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CloudWatch" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experiments/TestEngine.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="BaseEngine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/service" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="CloudWatch" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/service/BaseEngine.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -326,14 +401,18 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.STLRemoval" />
       <item index="1" class="java.lang.String" itemvalue="Python.BaseOutlier" />
+      <item index="2" class="java.lang.String" itemvalue="Python.TestEngine" />
+      <item index="3" class="java.lang.String" itemvalue="Python.BaseEngine" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.STLRemoval" />
-        <item index="1" class="java.lang.String" itemvalue="Python.BaseOutlier" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.TestEngine" />
+        <item index="1" class="java.lang.String" itemvalue="Python.BaseEngine" />
+        <item index="2" class="java.lang.String" itemvalue="Python.STLRemoval" />
+        <item index="3" class="java.lang.String" itemvalue="Python.BaseOutlier" />
       </list>
     </recent_temporary>
   </component>
@@ -354,25 +433,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-4" width="1368" height="711" extended-state="6" />
+    <frame x="0" y="24" width="1366" height="682" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24962631" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21375187" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864675" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32864675" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32864675" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3989455" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3989455" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -389,27 +468,51 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/outlier/BaseOutlier.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="15" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/experiments/STLRemoval.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/STLRemoval.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outlier/SHESD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -418,9 +521,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/STLRemoval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -428,7 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="1243" column="13" selection-start-line="1243" selection-start-column="13" selection-end-line="1243" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -453,13 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/generic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="2670" column="0" selection-start-line="2670" selection-start-column="0" selection-end-line="2670" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/statsmodels-0.6.1-py2.7-linux-x86_64.egg/statsmodels/graphics/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -481,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outlier/OneClassSVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/pyculiarity/r_stl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-157">
@@ -502,23 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/pyculiarity/detect_ts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/outlier/STLWithMedianRemoval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="73" column="39" selection-start-line="73" selection-start-column="7" selection-end-line="73" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -530,39 +607,35 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="1393" column="0" selection-start-line="1393" selection-start-column="0" selection-end-line="1393" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outlier/BaseOutlier.py" />
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outlier/SHESD.py">
+    <entry file="file://$PROJECT_DIR$/requirement">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/frame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="2356" column="0" selection-start-line="2356" selection-start-column="0" selection-end-line="2356" selection-end-column="0" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outlier/BaseOutlier.py">
+    <entry file="file://$PROJECT_DIR$/requirements">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#105#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="90">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/outlier/BaseEngine.py">
+    <entry file="file://$PROJECT_DIR$/config.dat">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -570,12 +643,194 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config/ConfigReader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grid_search/GridSearchACO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/grid_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="540" column="26" selection-start-line="540" selection-start-column="26" selection-end-line="540" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/svm/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="937" column="22" selection-start-line="934" selection-start-column="7" selection-end-line="937" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/sklearn/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-585">
+          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2016.1/system/python_stubs/-1247972723/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="600" column="8" selection-start-line="600" selection-start-column="8" selection-end-line="600" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/influxdb/_dataframe_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-183">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/auto_load.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/generic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="2671" column="0" selection-start-line="2671" selection-start-column="0" selection-end-line="2671" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/share/themes/MBuntu-Y-For-Unity/gtk-2.0/widgets/panel.rc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="1852" column="0" selection-start-line="1852" selection-start-column="0" selection-end-line="1852" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/frame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="1979" column="0" selection-start-line="1979" selection-start-column="0" selection-end-line="1979" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/re.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outlier/STL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/experiments/STLRemoval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state relative-caret-position="75">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outlier/OneClassSVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/heapq.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-138">
+          <caret line="435" column="4" selection-start-line="435" selection-start-column="4" selection-end-line="435" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outlier/SHESD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outlier/BaseOutlier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#45#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/pyculiarity/detect_ts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="166" column="0" selection-start-line="166" selection-start-column="0" selection-end-line="166" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python2.7/dist-packages/pyculiarity/date_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/BaseEngine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="60" column="14" selection-start-line="60" selection-start-column="14" selection-end-line="60" selection-end-column="14" />
+          <folding>
+            <element signature="e#22#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experiments/TestEngine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="14" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -4,6 +4,15 @@ import numpy as np
 from pandas import DataFrame, Series, to_datetime
 from pandas.tseries.index import DatetimeIndex
 class SHESD(BaseOutlier):
+    @staticmethod
+    def get_attributes():
+        return {
+            "max_anoms":0.02,
+            "direction":"both",
+            "alpha":0.05,
+            "threshold":None,
+            "piecewise_median_period_weeks":2
+        }
     def __init__(self, max_anoms=0.02,direction='both',alpha=0.05,only_last=None,threshold=None,
                  e_value=False, longterm=False,
               piecewise_median_period_weeks=2, plot=False,
@@ -43,8 +52,7 @@ class SHESD(BaseOutlier):
         results = detect_ts(data,max_anoms=self.max_anoms,
                             direction=self.direction, alpha=self.alpha,only_last=self.only_last,
                            threshold=self.threshold, e_value=self.e_value,longterm = self.longterm,
-                           piecewise_median_period_weeks=self.piecewise_median_period_weeks,plot=True,
-                           y_log = self.y_log, xlabel=self.xlabel, ylabel=self.ylabel, title=self.title, verbose=self.verbose)
+                           piecewise_median_period_weeks=self.piecewise_median_period_weeks)
         anoms = results['anoms']
         self.anomaly_idx = anoms.index
         self.anom_val = anoms['anoms']

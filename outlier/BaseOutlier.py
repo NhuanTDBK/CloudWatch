@@ -6,11 +6,16 @@ from pandas.tseries.index import DatetimeIndex
 import abc
 class BaseOutlier(object):
     def getFormat(self):
-        return [
-            "time",
+        return [    
             "value",
             "anomaly"
         ]
+
+    @staticmethod
+    def get_attributes():
+        return {
+
+        }
     def __init__(self, **kwargs):
         for key, value in iteritems(kwargs):
             setattr(self, key, value)
@@ -52,13 +57,21 @@ class BaseOutlier(object):
         else:
             ano_lbl.iloc[anomaly_idx] = 0
         new_data = DataFrame(index=self.index, columns=self.getFormat())
-        new_data['value'] = self.data['value'].tolist()
-        new_data['time'] = self.index.tolist()
-        new_data['anomaly'] = ano_lbl
-        return new_data.to_json(orient='records')
+        if type(self.data) is DataFrame:
+            new_data['value'] = self.data['value'].tolist()
+        elif type(self.data) is Series:
+            new_data['value'] = self.data.tolist()
 
+        # new_data['time'] = self.index.tolist()
+        new_data['anomaly'] = ano_lbl
+        return new_data
     @abc.abstractmethod
     def fit_predict(self, data=None):
         """Retrieve data from the input source and return an object."""
         raise NotImplementedError()
-
+    def convert_to_influx_format(self,data=None):
+        if isinstance(data,Series) == False:
+            print "Error on data type. Please input Pandas Series"
+        columns = ["value"]
+        b = DataFrame(data.tolist(),index=data.index, columns=columns)
+        return b

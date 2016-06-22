@@ -1,6 +1,7 @@
 numpy
 pandas
-theano
 sklearn
-lasagne
-git+git://github.com/tensorflow/skflow.git
+easy_install statsmodels
+install R base
+rpy2
+flask
