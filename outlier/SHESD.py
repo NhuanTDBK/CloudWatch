@@ -13,11 +13,11 @@ class SHESD(BaseOutlier):
             "threshold":None,
             "piecewise_median_period_weeks":2
         }
-    def __init__(self, max_anoms=0.02,direction='both',alpha=0.05,only_last=None,threshold=None,
+    def __init__(self, max_anoms=0.02, direction='both', alpha=0.05, only_last=None, threshold=None,
                  e_value=False, longterm=False,
-              piecewise_median_period_weeks=2, plot=False,
-              y_log=False, xlabel = '', ylabel = 'count',
-              title=None, verbose=False):
+                 piecewise_median_period=3, plot=False,
+                 y_log=False, xlabel = '', ylabel = 'count',
+                 title=None, verbose=False):
         self.max_anoms = max_anoms
         self.direction = direction
         self.alpha = alpha
@@ -25,7 +25,7 @@ class SHESD(BaseOutlier):
         self.threshold = threshold
         self.e_value = e_value
         self.longterm = longterm
-        self.piecewise_median_period_weeks = piecewise_median_period_weeks
+        self.piecewise_median_period = piecewise_median_period
         # self.plot=plot
         self.y_log = y_log
         self.xlabel = xlabel
@@ -49,10 +49,10 @@ class SHESD(BaseOutlier):
             self.index = data.index
         return self
     def predict(self,data=None):
-        results = detect_ts(data,max_anoms=self.max_anoms,
-                            direction=self.direction, alpha=self.alpha,only_last=self.only_last,
-                           threshold=self.threshold, e_value=self.e_value,longterm = self.longterm,
-                           piecewise_median_period_weeks=self.piecewise_median_period_weeks)
+        results = detect_ts(data, max_anoms=self.max_anoms,
+                            direction=self.direction, alpha=self.alpha, only_last=self.only_last,
+                            threshold=self.threshold, e_value=self.e_value, longterm = self.longterm,
+                            piecewise_median_period=self.piecewise_median_period)
         anoms = results['anoms']
         self.anomaly_idx = anoms.index
         self.anom_val = anoms['anoms']
