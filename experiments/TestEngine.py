@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from perioddetection import autoperiod
 loader = AutoLoad()
-engine = loader.auto_load_engine_default(method='STL')
-dat = pd.read_csv('../data/dataset1/13.json_remake',index_col=0,parse_dates=True)
+engine = loader.auto_load_engine_default(method='OneClassSVMDetector')
+dat = pd.read_csv('../data/dataset1/2.json_remake',index_col=0,parse_dates=True)
 
 # engine.longterm = True;
 # engine.piecewise_median_period = 4;
@@ -18,7 +18,7 @@ dat = pd.read_csv('../data/dataset1/13.json_remake',index_col=0,parse_dates=True
 #     pass
 # print engine.custom_period
 
-engine.fit_predict(data=dat.points[:-2000])
+engine.fit_predict(data=dat.points)
 engine.plot()
 plt.show()
 
