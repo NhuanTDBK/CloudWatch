@@ -28,7 +28,7 @@ from segmentation import segment, fit
 
 # In[9]:
 
-raw_data = pd.read_csv("../data/dataset1/9.json_remake")
+raw_data = pd.read_csv("../data/dataset1/19.json_remake")
 raw_data.interpolate(inplace=True)
 workload = raw_data.points
 # workload = workload [144*2:144*3]
@@ -149,6 +149,8 @@ for period_temp in period_candidate_point['period']:
         if startpoint-begin_frame < segments[i][2]:
             seg_index = i
             break
+    if((seg_index < 2) or (seg_index > len(segments)-2)):
+        continue
     dh_trai = (segments[seg_index][3]-segments[seg_index][1]) - (segments[seg_index-1][3]-segments[seg_index-1][1])
     dh_phai = (segments[seg_index+1][3]-segments[seg_index+1][1]) - (segments[seg_index][3]-segments[seg_index][1])
 
@@ -157,11 +159,16 @@ for period_temp in period_candidate_point['period']:
             #di tu trai sang phai
             # khi nao ma dao ham con duong thi di tu trai sang phai
             seg_index = seg_index+1
+            if (seg_index > len(segments)-2):
+                break
         while (segments[seg_index][3]<segments[seg_index][1]):
             # khi nao dao ham con am thi di tu phai sang trai
             seg_index = seg_index -1
-        final_period = segments[seg_index][2]
-        final_all_period.append(final_period+begin_frame)
+            if((seg_index < 2)):
+                break
+        if ((seg_index >= 2) and (seg_index <= len(segments) - 2)):
+            final_period = segments[seg_index][2]
+            final_all_period.append(final_period+begin_frame)
 print final_all_period
 #tim duoc segment cua diem
 
