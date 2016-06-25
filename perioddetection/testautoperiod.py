@@ -28,7 +28,7 @@ from segmentation import segment, fit
 
 # In[9]:
 
-raw_data = pd.read_csv("../data/vc_1.json_remake")
+raw_data = pd.read_csv("../data/dataset1/13.json_remake")
 raw_data.interpolate(inplace=True)
 workload = raw_data.points
 # workload = workload [144*2:144*3]

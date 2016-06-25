@@ -15,7 +15,7 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
               e_value=False, longterm=False,
               piecewise_median_period=3, plot=False,
               y_log=False, xlabel = '', ylabel = 'count',
-              title=None, verbose=False, custom_period = None):
+              title=None, verbose=False, custom_period = None, use_period = True):
     """
     Anomaly Detection Using Seasonal Hybrid ESD Test
     A technique for detecting anomalies in seasonal univariate time series where the input is a
@@ -227,7 +227,7 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
                                           use_decomp=True,
                                           one_tail=anomaly_direction.one_tail,
                                           upper_tail=anomaly_direction.upper_tail,
-                                          verbose=verbose)
+                                          verbose=verbose, use_period=use_period)
 
         # store decomposed components in local variable and overwrite
         # s_h_esd_timestamps to contain only the anom timestamps

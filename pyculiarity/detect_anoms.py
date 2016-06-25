@@ -11,7 +11,7 @@ import sys
 
 def detect_anoms(data, k=0.49, alpha=0.05, num_obs_per_period=None,
                  use_decomp=True, one_tail=True,
-                 upper_tail=True, verbose=False):
+                 upper_tail=True, verbose=False, use_period = True):
     """
     # Detects anomalies in a time series using S-H-ESD.
     #
@@ -66,21 +66,28 @@ def detect_anoms(data, k=0.49, alpha=0.05, num_obs_per_period=None,
             raise ValueError('Unsupported resample period: %d' % resample_period)
         data = data.resample(resample_period)
 
+    if (use_period):
+        decomp = stl(data.value, "periodic", np=num_obs_per_period)
 
-    decomp = stl(data.value, "periodic", np=num_obs_per_period)
+        # Remove the seasonal component, and the median of the data to create the univariate remainder
+        d = {
+            'timestamp': data.index,
+            'value': data.value - decomp['seasonal'] - data.value.median()
+        }
+        data = ps.DataFrame(d)
 
-    # Remove the seasonal component, and the median of the data to create the univariate remainder
-    d = {
-        'timestamp': data.index,
-        'value': data.value - decomp['seasonal'] - data.value.median()
-    }
-    data = ps.DataFrame(d)
-
-    p = {
-        'timestamp': decomp.index,
-        'value': (decomp['trend'] + decomp['seasonal']).truncate().convert_objects(convert_numeric=True)
-    }
-    data_decomp = ps.DataFrame(p)
+        p = {
+            'timestamp': decomp.index,
+            'value': (decomp['trend'] + decomp['seasonal']).truncate().convert_objects(convert_numeric=True)
+        }
+        data_decomp = ps.DataFrame(p)
+    else:
+        d = {
+            'timestamp': data.index,
+            'value': data.value
+        }
+        data = ps.DataFrame(d)
+        data_decomp = None
 
     # Maximum number of outliers that S-H-ESD can detect (e.g. 49% of data)
     max_outliers = int(num_obs * k)
