@@ -27,10 +27,15 @@
   2. Vào mục Data Sources -> Add new :
 
     Url: http://localhost:8086
+    
     Type: InfluxDB 0.9.x
+    
     Access: Direct
+    
     Database: test
+    
     User: datasource
+    
     Password: datasource
 
     Thực hiện *Test connection* và *Save*
@@ -44,11 +49,13 @@
     Tiếp tục tạo hai câu truy vấn như sau:
 
     A: SELECT "value" FROM "data"
+    
     B: SELECT "value" FROM "data" WHERE "anomaly" = 0
 
     Chuyển tới *Display Styles* và thêm hai *Series specific overrides * như sau:
 
     alias or regex : normal  Lines: true   Points: false
+    
     alias or regex : anomaly Lines: false  Points: true
 
-  4. Trong quá trình theo dõi dữ liệu được đẩy liên tục vào database, để tiện theo dõi, chúng ta có thể thay đổi khoảng thời gian quan tâm cũng như tấn suất cập nhật đồ thị
+  4. Trong quá trình theo dõi dữ liệu được đẩy liên tục vào database, để tiện theo dõi, chúng ta có thể thay đổi khoảng thời gian quan tâm cũng như tấn suất cập nhật đồ thị bằng thao tác ngay trên giao diện.
