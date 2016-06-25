@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from perioddetection import autoperiod
 loader = AutoLoad()
 engine = loader.auto_load_engine_default(method='SHESD')
-dat = pd.read_csv('../data/dataset1/2.json_remake',index_col=0,parse_dates=True)
+dat = pd.read_csv('../data/dataset1/5.json_remake',index_col=0,parse_dates=True)
 engine.longterm = True;
 engine.piecewise_median_period = 7;
 engine.max_anoms = 1/200.0

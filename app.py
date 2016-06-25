@@ -1,23 +1,36 @@
-from flask import Flask, jsonify, abort, request, make_response, url_for
+from flask import Flask, jsonify, abort, request, make_response, url_for, render_template
 from service.BaseEngine import BaseEngine
 from utils.auto_load import AutoLoad
 from service.DataSource import DataSource
 from service_form.ServiceForm import *
+import uuid
+import numpy as np
+from apscheduler.schedulers.blocking import BlockingScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
+import logging
+import sys
+from perioddetection import autoperiod
 
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 loader = AutoLoad()
 app = Flask(__name__)
+scheduler = BackgroundScheduler()
+scheduler.start()
+services = {}
+
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
   response.headers.add('Access-Control-Allow-Headers', '*')
   response.headers.add('Access-Control-Allow-Methods', '*')
   return response
-
-
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return render_template('dashboard.html')
+@app.route('/service')
+def index_table():
+    return render_template('index2.html')
 @app.route('/algorithm/<algo>/params')
 def getParams(algo):
     obj = loader.load_engine(algo)
@@ -32,7 +45,32 @@ def api_predict():
         datasource = DataSource(host=params_form['host'], port=params_form['port'], username=params_form['user-name'],
                             password=params_form['password'],db_name=params_form['db_name'],measurement=params_form['measurement'])
         service = BaseEngine(engine=engine,datasource=datasource)
+        id_service = str(uuid.uuid4())
+        services[id_service] = service
+        try:
+            scheduler.add_job(services[id_service].work, 'interval', seconds=60, id=id_service)
+        except Exception as e:
+            print e
         #
         return jsonify(request.form)
+@app.route('/check_period', methods = ['POST'])
+def period_detect():
+    if request.method == "POST":
+        params = request.form
+        new_params = dict(request.form)
+        new_params['host'] = str(params['host'])
+        new_params['user-name'] = str(params['user-name'])
+        new_params['password'] = str(params['password'])
+        new_params['db_name'] = str(params['db_name'])
+        new_params['measurement'] = str(params['measurement'])
+        new_params['port'] = int(params['port'])
+        params_form = new_params
+        datasource = DataSource(host=params_form['host'], port=params_form['port'], username=params_form['user-name'],
+                                password=params_form['password'], db_name=params_form['db_name'],
+                                measurement=params_form['measurement'])
+        engine = loader.auto_load_engine_default(method='SHESD')
+        service = BaseEngine(engine=engine, datasource=datasource)
+        a = engine.convert_twitter_format(service.query_all().value)
+        return jsonify(np.array(autoperiod.period_detect(a, segment_method="topdownsegment"))/1440)
 if __name__ == "__main__":
     app.run()
