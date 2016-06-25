@@ -2,6 +2,7 @@
 from influxdb import DataFrameClient
 from influxdb.resultset import ResultSet
 from datetime import datetime
+from service.DataSource import DataSource
 import numpy as np
 from outlier.BaseOutlier import BaseOutlier
 class BaseEngine(object):
@@ -15,11 +16,11 @@ class BaseEngine(object):
             result = False
             print "Cannot connect. Please check configuration server"
         return result
-    def __init__(self,engine=None,host="localhost",port='8086',username="root",password="root",db_name=None,measurement=None,interval=1,number_of_days = 30):
-        # self.host = host
-        # self.port = port
-        # self.username = username
-        # self.password = password
+    def __init__(self,engine=None, datasource = None,interval=1,number_of_days = 30):
+
+        if(datasource==None):
+            raise Exception("Please plugin datasource")
+        host,port,username,password,db_name,measurement = datasource._return()
         self.db_name = db_name
         self.measurement = measurement
         self.interval = interval
