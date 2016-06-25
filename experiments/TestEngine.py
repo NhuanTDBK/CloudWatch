@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 from perioddetection import autoperiod
 loader = AutoLoad()
-engine = loader.auto_load_engine_default(method='STL')
+engine = loader.auto_load_engine_default(method='KMeansBase')
 dat = pd.read_csv('../data/dataset1/17.json_remake',index_col=0,parse_dates=True)
 
-# engine.longterm = True;
-# engine.use_period = False
-# engine.piecewise_median_period = 4;
-# engine.max_anoms = 1/100.0
+engine.longterm = True;
 engine.use_period = False
+engine.piecewise_median_period = 4;
+engine.max_anoms = 1/100.0
+# engine.use_period = False
 engine.fit(data=dat.points)
 # print autoperiod.period_detect(engine.data)
 # try:
@@ -21,7 +21,7 @@ engine.fit(data=dat.points)
 #     pass
 # print engine.custom_period
 
-engine.fit_predict(data=dat.points[:-3])
+engine.fit_predict(data=dat.points)
 engine.plot()
 plt.show()
 
