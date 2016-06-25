@@ -20,42 +20,57 @@
   Sau khi container của docker đã chạy. Chúng ta thực hiện cấu hình địa chỉ của database cho project này và Grafana để hiển thị dữ liệu.
 
   1. Truy cập [http://localhost:3003](http://localhost:3003)
+  
+  Username: root
 
-    Username: root
-    Password: root
-
+  Password: root
+  
+  ![Login](https://ibin.co/2ltBXPonh6zY.png)
+  
   2. Vào mục Data Sources -> Add new :
 
-    Url: http://localhost:8086
-    
-    Type: InfluxDB 0.9.x
-    
-    Access: Direct
-    
-    Database: test
-    
-    User: datasource
-    
-    Password: datasource
-
-    Thực hiện *Test connection* và *Save*
+  Url: http://localhost:8086
+  
+  Type: InfluxDB 0.9.x
+  
+  Access: Direct
+  
+  Database: test
+  
+  User: datasource
+  
+  Password: datasource
+  
+  Thực hiện *Save* và *Test connection*
+  
+  ![Add datasource](https://ibin.co/2ltCWIXCd9kB.png)
 
   3. Quay lại Dashboard -> Home -> New (góc dưới trái).
 
     Tiếp tục click chuột vào phần xanh lá cây lề trái -> Add Panel -> Graph
-
+  
     Sau đó, thực hiện chọn datasource mà bạn đã tạo ở góc dưới phải.
-
+    
+    [Add dashboard](https://ibin.co/2ltCHJNE7jlQ.png)
+    
+    [Add panel](https://ibin.co/2ltCQ3NsaQZs.png)
+    
     Tiếp tục tạo hai câu truy vấn như sau:
 
     A: SELECT "value" FROM "data"
     
     B: SELECT "value" FROM "data" WHERE "anomaly" = 0
 
+    [Add query](hhttps://ibin.co/2ltDcfpap5ly.png)
+    
     Chuyển tới *Display Styles* và thêm hai *Series specific overrides * như sau:
 
     alias or regex : normal  Lines: true   Points: false
-    
+  
     alias or regex : anomaly Lines: false  Points: true
+    
+    [Add Specific overrides](https://ibin.co/2ltDxamj4M74.png)
 
   4. Trong quá trình theo dõi dữ liệu được đẩy liên tục vào database, để tiện theo dõi, chúng ta có thể thay đổi khoảng thời gian quan tâm cũng như tấn suất cập nhật đồ thị bằng thao tác ngay trên giao diện.
+    
+    [Change range times](https://ibin.co/2ltEWYpKv8tq.png)
