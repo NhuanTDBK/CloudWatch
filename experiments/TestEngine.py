@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from perioddetection import autoperiod
 loader = AutoLoad()
-engine = loader.auto_load_engine_default(method='KMeansBase')
+engine = loader.auto_load_engine_default(method='SHESD')
 dat = pd.read_csv('../data/dataset1/17.json_remake',index_col=0,parse_dates=True)
 
 engine.longterm = True;
