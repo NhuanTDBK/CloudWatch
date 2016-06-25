@@ -2,6 +2,7 @@ import numpy as np
 from outlier.BaseOutlier import BaseOutlier
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+import pandas as pd
 
 from pandas import Series
 
@@ -28,10 +29,11 @@ class STL(BaseOutlier):
             "model":'addtitive',
             'mode':'median'
         }
-    def __init__(self, freq=24*60, model='addtitive', mode='median'):
+    def __init__(self, freq=24*60, model='addtitive', mode='median', use_period = True):
         self.freq = freq
         self.model = model
         self.mode = mode
+        self.use_period = use_period
         self.check_freq()
 
     def fit(self, data=None):
@@ -43,10 +45,15 @@ class STL(BaseOutlier):
         return self
 
     def predict(self, data=None):
-        # decomfreq = freq
-        res = sm.tsa.seasonal_decompose(self.data.tolist(), freq=self.freq, model=self.model)
-        #     res.plot()
-        random = Series(res.resid)
+        if(self.use_period):
+            # decomfreq = freq
+            res = sm.tsa.seasonal_decompose(self.data.tolist(), freq=self.freq, model=self.model)
+            #     res.plot()
+            median_trend = pd.rolling_median(Series(self.data),window=self.freq, center=True, min_periods=1)
+            resid = res.observed - res.seasonal - median_trend
+        else:
+            resid = self.data
+        random = Series(resid)
         mean_nan = 0
         std_nan = 0
         # random = res.resid
@@ -54,13 +61,13 @@ class STL(BaseOutlier):
             mean_nan = np.nanmean(random)
             std_nan = np.nanstd(random)
         elif (self.mode == 'median'):
-            rolling_median = random.rolling(3).median()
+            rolling_median = pd.rolling_median(random,3,center=True, min_periods=1)
             mean_nan = np.nanmean(rolling_median)
             std_nan = np.nanstd(rolling_median)
         min_val = mean_nan - 4 * std_nan
         # max_val = mean(random, na.rm = T) + 4*sd(random, na.rm = T)
         max_val = mean_nan + 4 * std_nan
-        position = Series(res.resid.tolist(), index=np.arange(res.resid.shape[0]))
+        position = Series(resid.tolist(), index=np.arange(resid.shape[0]))
         anomaly = position[(position > max_val) | (position < min_val)]
         # anomalyL = position[(position<min_val)]
         # anomaly = anomalyH.append(anomalyL).drop_duplicates()

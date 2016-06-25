@@ -4,3 +4,5 @@ pandas
 sklearn
 rpy2
 flask
+flask-WTF
+apscheduler

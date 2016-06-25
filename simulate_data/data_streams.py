@@ -22,7 +22,7 @@ def convert(point):
             "time": point[1],
             "fields": {
                 "value": point[0],
-                "anomaly": random.randint(0,100)
+                "anomaly": 1.0
             }
         }
     ]

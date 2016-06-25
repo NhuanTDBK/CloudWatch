@@ -1,7 +1,7 @@
 __doc__ = 'Base Class for Outlier estimator'
 from statsmodels.compat.python import lmap, range, iteritems
 import numpy as np
-from pandas import Series, DataFrame, WidePanel
+from pandas import Series, DataFrame, WidePanel, to_datetime
 from pandas.tseries.index import DatetimeIndex
 import abc
 class BaseOutlier(object):
@@ -75,3 +75,13 @@ class BaseOutlier(object):
         columns = ["value"]
         b = DataFrame(data.tolist(),index=data.index, columns=columns)
         return b
+    def _is_anomaly_point(self):
+        max_idx = self.index.max()
+        max_anomaly_idx = self.anomaly_idx.max()
+        if max_idx == max_anomaly_idx:
+            print "Anomaly"
+            produce = {
+                "anomaly": 0
+            }
+            return DataFrame([produce], index=[to_datetime(max_anomaly_idx)])
+        return None

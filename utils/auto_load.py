@@ -4,7 +4,6 @@ class AutoLoad(object):
         klass = getattr(mod, method)
         return klass
 
-
     def auto_load_engine_default(self, method):
         object = self.load_engine(method)
         return object()
@@ -15,7 +14,8 @@ class AutoLoad(object):
         return object.get_attributes()
 
 
-    def auto_constructor(self, object, parameter):
+    def auto_constructor(self, method, parameter):
+        object = self.auto_load_engine_default(method)
         for item, value in parameter.iteritems():
             object.__setattr__(item, value)
         return object
