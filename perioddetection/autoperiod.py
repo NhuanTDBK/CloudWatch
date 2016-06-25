@@ -9,8 +9,11 @@ from segmentation import segment, fit
 
 def period_detect(df, fs=1440, segment_method = "slidingwindowsegment"):
     #dau vao df theo dinh dang cua twitter
+    #fs: tan so lay mau (sample per day)
     if not isinstance(df, DataFrame):
         raise ValueError("data must be a single data frame.")
+    if not segment_method in ["slidingwindowsegment", "topdownsegment", "bottomupsegment"]:
+        raise ValueError("segment_method must be slidingwindowsegment or topdownsegment or bottomupsegment")
     else:
         if len(df.columns) != 2 or not df.iloc[:,1].map(np.isreal).all():
             raise ValueError(("data must be a 2 column data.frame, with the"
