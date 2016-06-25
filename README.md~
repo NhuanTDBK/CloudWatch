@@ -1,7 +1,7 @@
 # CloudWatch
 Hệ thống phát hiện và tự động cảnh báo bất thường trong hệ thống
 dashboard 
-/home/nhuanhunter/MyWorking/CloudWatch/gentelella/production/dashboard.html
+/home/nhuanhunter/MyWorking/CloudWatch/gentelella/production
 # Cách dùng engine:
 Đọc trực tiếp từ file (xem file experiments/TestEngine.py):
     engine = loader.auto_load_engine_default(method='SHESD')

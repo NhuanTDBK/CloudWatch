@@ -14,7 +14,7 @@ class SHESD(BaseOutlier):
             "piecewise_median_period_weeks":2
         }
     def __init__(self, max_anoms=0.02, direction='both', alpha=0.05, only_last=None, threshold=None,
-                 e_value=False, longterm=False,
+                 e_value=False, longterm=True,
                  piecewise_median_period=3, plot=False,
                  y_log=False, xlabel = '', ylabel = 'count',
                  title=None, verbose=False):
