@@ -30,7 +30,7 @@ class BaseEngine(object):
         self.number_of_anomalies = 0
         if isinstance(engine,BaseOutlier) == False:
             print "Please plug in Engine instance of BaseOutlier"
-            raise ValueError("Please plug in Engine instance of BaseOutlier")
+            # raise ValueError("Please plug in Engine instance of BaseOutlier")
         else:
             print "Engine is already"
             self.engine = engine
@@ -42,6 +42,12 @@ class BaseEngine(object):
         query_set = 'select value from %s order by time desc limit %s ;'%(self.measurement,self.number_of_days*24*60)
         result = self.client_api.query(query_set)[self.measurement]
         return result
+    def query_all(self):
+        print "Get latest time series points"
+        query_set = 'select value from %s limit 10000;'%(self.measurement)
+        result = self.client_api.query(query_set)[self.measurement]
+        return result
+
     def fit_predict(self,data=None):
         self.engine.fit_predict(data)
         return self.engine.produce()
@@ -54,11 +60,17 @@ class BaseEngine(object):
                 print e.message
         return result
     def work(self):
+        print "Start detecting..."
         data = self.query_analyzed()
         sorted_res = data.tz_convert(None).sort(ascending=True).drop_duplicates(keep='first')
         ano_lbl = self.engine.fit_predict(sorted_res['value'])
         output = self.engine.produce()
         result = self.update_db(output)
+        # output = self.engine._is_anomaly_point()
+        # if output != None:
+        #     print "Anomaly Detection!"
+        #     self.number_of_anomalies += 1
+        #     result = self.update_db(output)
         # if result:
         #     print "Successfully detect anomaly"
         # return result

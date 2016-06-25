@@ -2,7 +2,6 @@ from service.BaseEngine import BaseEngine
 from utils.auto_load import AutoLoad
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 from perioddetection import autoperiod
 loader = AutoLoad()
 engine = loader.auto_load_engine_default(method='KMeansBase')
@@ -24,4 +23,3 @@ engine.fit(data=dat.points)
 engine.fit_predict(data=dat.points)
 engine.plot()
 plt.show()
-
