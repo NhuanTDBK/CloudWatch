@@ -1,0 +1,26 @@
+Traceback (most recent call last):
+  File "simulate_data/SimulateStream.py", line 4, in <module>
+    from utils.auto_load import AutoLoad
+ImportError: No module named utils.auto_load
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNoSectionError[0m                            Traceback (most recent call last)
+[0;32m/usr/lib/python2.7/dist-packages/IPython/utils/py3compat.pyc[0m in [0;36mexecfile[0;34m(fname, *where)[0m
+[1;32m    202[0m             [0;32melse[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    203[0m                 [0mfilename[0m [0;34m=[0m [0mfname[0m[0;34m[0m[0m
+[0;32m--> 204[0;31m             [0m__builtin__[0m[0;34m.[0m[0mexecfile[0m[0;34m([0m[0mfilename[0m[0;34m,[0m [0;34m*[0m[0mwhere[0m[0;34m)[0m[0;34m[0m[0m
+[0m
+[0;32m/home/nhuanhunter/MyWorking/CloudWatch/simulate_data/SimulateStream.py[0m in [0;36m<module>[0;34m()[0m
+[1;32m      9[0m [0mcfgFile[0m [0;34m=[0m [0mConfig[0m[0;34m.[0m[0mread[0m[0;34m([0m[0;34m'../config.cfg'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     10[0m [0;34m[0m[0m
+[0;32m---> 11[0;31m [0mhost[0m [0;34m=[0m [0mConfig[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'DATABASE'[0m[0;34m,[0m[0;34m'host'[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m     12[0m [0mport[0m [0;34m=[0m [0mConfig[0m[0;34m.[0m[0mgetint[0m[0;34m([0m[0;34m'DATABASE'[0m[0;34m,[0m[0;34m'port'[0m[0;34m)[0m[0;34m[0m[0m
+[1;32m     13[0m [0mdbname[0m[0;34m=[0m [0mConfig[0m[0;34m.[0m[0mget[0m[0;34m([0m[0;34m'DATABASE'[0m[0;34m,[0m[0;34m'dbname'[0m[0;34m)[0m[0;34m[0m[0m
+
+[0;32m/usr/lib/python2.7/ConfigParser.pyc[0m in [0;36mget[0;34m(self, section, option, raw, vars)[0m
+[1;32m    605[0m         [0;32mexcept[0m [0mKeyError[0m[0;34m:[0m[0;34m[0m[0m
+[1;32m    606[0m             [0;32mif[0m [0msection[0m [0;34m!=[0m [0mDEFAULTSECT[0m[0;34m:[0m[0;34m[0m[0m
+[0;32m--> 607[0;31m                 [0;32mraise[0m [0mNoSectionError[0m[0;34m([0m[0msection[0m[0;34m)[0m[0;34m[0m[0m
+[0m[1;32m    608[0m         [0;31m# Update with the entry specific variables[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    609[0m         [0mvardict[0m [0;34m=[0m [0;34m{[0m[0;34m}[0m[0;34m[0m[0m
+
+[0;31mNoSectionError[0m: No section: 'DATABASE'

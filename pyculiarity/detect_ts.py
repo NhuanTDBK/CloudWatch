@@ -15,7 +15,7 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
               e_value=False, longterm=False,
               piecewise_median_period=3, plot=False,
               y_log=False, xlabel = '', ylabel = 'count',
-              title=None, verbose=False):
+              title=None, verbose=False, custom_period = None, use_period = True):
     """
     Anomaly Detection Using Seasonal Hybrid ESD Test
     A technique for detecting anomalies in seasonal univariate time series where the input is a
@@ -159,7 +159,11 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
         'hr': 24,
         'day': 7
     }
-    period = gran_period.get(gran)
+    if(custom_period == None):
+        print "auto choose period"
+        period = gran_period.get(gran)
+    else:
+        period = custom_period
     if not period:
         raise ValueError('%s granularity detected. This is currently not supported.' % gran)
     num_obs = len(df.value)
@@ -171,10 +175,10 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
     if longterm:
         if gran == "day":
             num_obs_in_period = period * piecewise_median_period + 1
-            num_days_in_period = 7 * piecewise_median_period + 1
+        #     num_days_in_period = 7 * piecewise_median_period + 1
         else:
             num_obs_in_period = period  * piecewise_median_period
-            num_days_in_period =  piecewise_median_period # dong nay can phai sua lai neu period ko phai la ngay
+            # num_days_in_period =  piecewise_median_period # dong nay can phai sua lai neu period ko phai la ngay
 
         last_date = df.timestamp.iget(-1)
 
@@ -184,17 +188,17 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
             start_date = df.timestamp.iget(j)
 
             end_date = min(start_date
-                           + datetime.timedelta(days=num_days_in_period),
+                           + datetime.timedelta(minutes=num_obs_in_period),
                            df.timestamp.iget(-1))
 
             # if there is at least 14 days left, subset it,
             # otherwise subset last_date - 14days
-            if (end_date - start_date).days == num_days_in_period:
+            if (end_date - start_date).total_seconds() == num_obs_in_period * 60:
                 sub_df = df[(df.timestamp >= start_date)
                             & (df.timestamp < end_date)]
             else:
                 sub_df = df[(df.timestamp >
-                     (last_date - datetime.timedelta(days=num_days_in_period)))
+                     (last_date - datetime.timedelta(minutes=num_obs_in_period)))
                     & (df.timestamp <= last_date)]
             all_data.append(sub_df)
     else:
@@ -223,7 +227,7 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
                                           use_decomp=True,
                                           one_tail=anomaly_direction.one_tail,
                                           upper_tail=anomaly_direction.upper_tail,
-                                          verbose=verbose)
+                                          verbose=verbose, use_period=use_period)
 
         # store decomposed components in local variable and overwrite
         # s_h_esd_timestamps to contain only the anom timestamps

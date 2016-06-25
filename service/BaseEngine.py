@@ -64,11 +64,13 @@ class BaseEngine(object):
         data = self.query_analyzed()
         sorted_res = data.tz_convert(None).sort(ascending=True).drop_duplicates(keep='first')
         ano_lbl = self.engine.fit_predict(sorted_res['value'])
-        output = self.engine._is_anomaly_point()
-        if output != None:
-            print "Anomaly Detection!"
-            self.number_of_anomalies += 1
-            result = self.update_db(output)
+        output = self.engine.produce()
+        result = self.update_db(output)
+        # output = self.engine._is_anomaly_point()
+        # if output != None:
+        #     print "Anomaly Detection!"
+        #     self.number_of_anomalies += 1
+        #     result = self.update_db(output)
         # if result:
         #     print "Successfully detect anomaly"
         # return result

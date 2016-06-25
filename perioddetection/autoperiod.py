@@ -33,7 +33,7 @@ def period_detect(df, fs=1440, segment_method = "topdownsegment"):
     fs = 60*24
     f, Pxx_den = signal.periodogram(data_value, fs)
     # chon nguong 40 %
-    threshold = 0.4 * np.max(Pxx_den);
+    threshold = 0.2 * np.max(Pxx_den);
     index_period_candidate = [i for i in range(1,Pxx_den.size-1) if ((Pxx_den[i] > threshold) and (Pxx_den[i] > Pxx_den[i+1]) and (Pxx_den[i] > Pxx_den[i-1]))]
     period_candidate = [f[i] for i in index_period_candidate if (f[i]<(n-1)/fs)]
     period_candidate_pxx = [Pxx_den[i] for i in index_period_candidate if (f[i]<(n-1)/fs)]

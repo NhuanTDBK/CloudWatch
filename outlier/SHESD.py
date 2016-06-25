@@ -11,10 +11,10 @@ class SHESD(BaseOutlier):
             "direction":"both",
             "alpha":0.05,
             "threshold":None,
-            "piecewise_median_period":2
+            "piecewise_median_period_weeks":2
         }
     def __init__(self, max_anoms=0.02, direction='both', alpha=0.05, only_last=None, threshold=None,
-                 e_value=False, longterm=True,
+                 e_value=False, longterm=False,
                  piecewise_median_period=3, plot=False,
                  y_log=False, xlabel = '', ylabel = 'count',
                  title=None, verbose=False):
@@ -49,17 +49,14 @@ class SHESD(BaseOutlier):
             self.index = data.index
         return self
     def predict(self,data=None):
-        try:
-            results = detect_ts(data, max_anoms=self.max_anoms,
-                                direction=self.direction, alpha=self.alpha, only_last=self.only_last,
-                                threshold=self.threshold, e_value=self.e_value, longterm = self.longterm,
-                                piecewise_median_period=self.piecewise_median_period)
-            anoms = results['anoms']
-            self.anomaly_idx = anoms.index
-            self.anom_val = anoms['anoms']
-            return anoms
-        except Exception as e:
-            print e
+        results = detect_ts(data, max_anoms=self.max_anoms,
+                            direction=self.direction, alpha=self.alpha, only_last=self.only_last,
+                            threshold=self.threshold, e_value=self.e_value, longterm = self.longterm,
+                            piecewise_median_period=self.piecewise_median_period)
+        anoms = results['anoms']
+        self.anomaly_idx = anoms.index
+        self.anom_val = anoms['anoms']
+        return anoms
     def fit_predict(self, data=None):
         self.fit(data)
         return self.predict(self.data)

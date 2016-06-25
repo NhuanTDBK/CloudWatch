@@ -28,7 +28,7 @@ from segmentation import segment, fit
 
 # In[9]:
 
-raw_data = pd.read_csv("../data/dataset1/19.json_remake")
+raw_data = pd.read_csv("../data/dataset1/13.json_remake")
 raw_data.interpolate(inplace=True)
 workload = raw_data.points
 # workload = workload [144*2:144*3]
@@ -60,7 +60,7 @@ workload2= workload-workload.mean()
 fs = 60*24
 f, Pxx_den = signal.periodogram(workload, fs)
 # chon nguong 40 %
-threshold = 0.4 * np.max(Pxx_den);
+threshold = 0.2 * np.max(Pxx_den);
 index_period_candidate = [i for i in range(1,Pxx_den.size-1) if ((Pxx_den[i] > threshold) and (Pxx_den[i] > Pxx_den[i+1]) and (Pxx_den[i] > Pxx_den[i-1]))]
 period_candidate = [f[i] for i in index_period_candidate if (f[i]<(n-1)/fs)]
 period_candidate_pxx = [Pxx_den[i] for i in index_period_candidate if (f[i]<(n-1)/fs)]

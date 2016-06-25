@@ -11,7 +11,7 @@ import sys
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 Config = ConfigParser.ConfigParser()
-cfgFile = Config.read('../config.cfg')
+cfgFile = Config.read('config.cfg')
 
 host = Config.get('DATABASE','host')
 port = Config.get('DATABASE','port')
@@ -31,6 +31,7 @@ engine = loader.auto_load_engine_default(method='SHESD')
 datasource = DataSource(username=username,password=password, db_name=dbname,measurement=measurement)
 service = BaseEngine(engine=engine, datasource=datasource)
 id_service = str(uuid.uuid4())
+# service.work()
 scheduler.add_job(service.work, 'interval', seconds=time_activate, id=id_service)
 while True:
     i = 0
