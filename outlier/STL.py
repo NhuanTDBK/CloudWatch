@@ -2,6 +2,7 @@ import numpy as np
 from outlier.BaseOutlier import BaseOutlier
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
+import pandas as pd
 
 from pandas import Series
 
@@ -46,7 +47,9 @@ class STL(BaseOutlier):
         # decomfreq = freq
         res = sm.tsa.seasonal_decompose(self.data.tolist(), freq=self.freq, model=self.model)
         #     res.plot()
-        random = Series(res.resid)
+        median_trend = pd.rolling_median(Series(self.data),window=self.freq, center=True, min_periods=1)
+        resid = res.observed - res.seasonal - median_trend
+        random = Series(resid)
         mean_nan = 0
         std_nan = 0
         # random = res.resid
@@ -54,7 +57,7 @@ class STL(BaseOutlier):
             mean_nan = np.nanmean(random)
             std_nan = np.nanstd(random)
         elif (self.mode == 'median'):
-            rolling_median = random.rolling(3).median()
+            rolling_median = pd.rolling_median(random,3,center=True, min_periods=1)
             mean_nan = np.nanmean(rolling_median)
             std_nan = np.nanstd(rolling_median)
         min_val = mean_nan - 4 * std_nan
