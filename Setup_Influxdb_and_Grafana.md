@@ -1,7 +1,7 @@
 # **Hướng dẫn cài đặt Influxdb và Grafana**
   Trong nội dung project này, chúng tôi sử dụng Influxdb database để lưu trữ dữ liệu và Grafana để hiển thị dữ liệu cũng như các *điểm bất thường*
 
-  Để tiện lợi và đảm bảo cho việc người dùng dễ dàng cài đặt, chúng tôi đề xuất sử dụng Docker container kết hợp cả Influxdb và Grafana. Hiện tại có rất nhiều docker images được chia sẻ miễn phí trên Docker Hub. Ở đây, chúng tôi sử dụng docker images [samuelebistoletti/docker-statsd-influxdb-grafana
+  Để tiện lợi và đảm bảo cho việc người dùng dễ dàng cài đặt, chúng tôi đề xuất sử dụng Docker container kết hợp cả Influxdb và Grafana. Hiện tại có rất nhiều docker images được chia sẻ miễn phí trên Docker Hub. Ở đây, chúng tôi sử dụng docker image [samuelebistoletti/docker-statsd-influxdb-grafana
 ](https://github.com/samuelebistoletti/docker-statsd-influxdb-grafana). Tìm hiểu thêm về Docker tại [https://www.docker.com/](https://www.docker.com/)
 
   Khi đã có docker image trên, chúng ta đơn giản là thực hiện lệnh theo đường dẫn image ở trên:
@@ -51,17 +51,18 @@
   
     Sau đó, thực hiện chọn datasource mà bạn đã tạo ở góc dưới phải.
     
-    [Add dashboard](https://ibin.co/2ltCHJNE7jlQ.png)
+  ![Add dashboard](https://ibin.co/2ltCHJNE7jlQ.png)
     
-    [Add panel](https://ibin.co/2ltCQ3NsaQZs.png)
+    
+  ![Add panel](https://ibin.co/2ltCQ3NsaQZs.png)
     
     Tiếp tục tạo hai câu truy vấn như sau:
 
     A: SELECT "value" FROM "data"
     
     B: SELECT "value" FROM "data" WHERE "anomaly" = 0
-
-    [Add query](hhttps://ibin.co/2ltDcfpap5ly.png)
+    
+  ![Add query](https://ibin.co/2ltDcfpap5ly.png)
     
     Chuyển tới *Display Styles* và thêm hai *Series specific overrides * như sau:
 
@@ -69,8 +70,8 @@
   
     alias or regex : anomaly Lines: false  Points: true
     
-    [Add Specific overrides](https://ibin.co/2ltDxamj4M74.png)
+  ![Add Specific overrides](https://ibin.co/2ltDxamj4M74.png)
 
   4. Trong quá trình theo dõi dữ liệu được đẩy liên tục vào database, để tiện theo dõi, chúng ta có thể thay đổi khoảng thời gian quan tâm cũng như tấn suất cập nhật đồ thị bằng thao tác ngay trên giao diện.
     
-    [Change range times](https://ibin.co/2ltEWYpKv8tq.png)
+  ![Change range times](https://ibin.co/2ltEWYpKv8tq.png)
