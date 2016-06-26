@@ -193,7 +193,7 @@ def detect_ts(df, max_anoms=0.10, direction='pos',
 
             # if there is at least 14 days left, subset it,
             # otherwise subset last_date - 14days
-            if (end_date - start_date).total_seconds() == num_obs_in_period * 60:
+            if ((int)((end_date - start_date).total_seconds())) == num_obs_in_period * 60:
                 sub_df = df[(df.timestamp >= start_date)
                             & (df.timestamp < end_date)]
             else:
