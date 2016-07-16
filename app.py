@@ -28,6 +28,27 @@ def after_request(response):
 @app.route("/")
 def hello():
     return render_template('dashboard.html')
+@app.route("/check_db", methods=["POST"])
+def check_db():
+    if request.method == "POST":
+        params = request.form
+
+        new_params = {}
+        new_params['host'] = str(params['host'])
+        new_params['user-name'] = str(params['user-name'])
+        new_params['password'] = str(params['password'])
+        new_params['db_name'] = str(params['db_name'])
+        new_params['measurement'] = str(params['measurement'])
+        params_form = new_params
+        datasource = DataSource(host=params_form['host'], username=params_form['user-name'],
+                                password=params_form['password'], db_name=params_form['db_name'],
+                                measurement=params_form['measurement'])
+        result = {"status":"failed"}
+        if datasource.check_connected() == True:
+            result['status'] = "good"
+        # else:
+            # result = "failed"
+        return jsonify(result=result)
 @app.route('/service')
 def index_table():
     return render_template('index2.html')
@@ -36,6 +57,12 @@ def getParams(algo):
     obj = loader.load_engine(algo)
     params = obj.get_attributes()
     return jsonify(params)
+@app.route('/check_running')
+def check_running():
+    # obj = loader.load_engine(algo)
+    number_of_services = len(services)
+    # params = obj.get_attributes()
+    return jsonify(number_of_services=number_of_services)
 @app.route('/create', methods = ['POST'])
 def api_predict():
     if request.method == "POST":
