@@ -75,7 +75,7 @@ def api_predict():
         id_service = str(uuid.uuid4())
         services[id_service] = service
         try:
-            scheduler.add_job(services[id_service].work, 'interval', seconds=60, id=id_service)
+            scheduler.add_job(services[id_service].work, 'interval', seconds=30, id=id_service)
         except Exception as e:
             print e
         #
@@ -96,8 +96,8 @@ def period_detect():
                                 password=params_form['password'], db_name=params_form['db_name'],
                                 measurement=params_form['measurement'])
         engine = loader.auto_load_engine_default(method='SHESD')
-        service = BaseEngine(engine=engine, datasource=datasource)
-        a = engine.convert_twitter_format(service.query_all().value)
-        return jsonify(np.array(autoperiod.period_detect(a, segment_method="topdownsegment"))/1440)
+        # service = BaseEngine(engine=engine, datasource=datasource)
+        a = engine.convert_twitter_format(datasource.query_all().value)
+        return jsonify(periods=autoperiod.period_detect(a, segment_method="topdownsegment"))
 if __name__ == "__main__":
     app.run()

@@ -42,8 +42,10 @@ def period_detect(df, fs=1440, segment_method = "topdownsegment"):
         'period': period_candidate,
         'magnitude': period_candidate_pxx
     }
+    print "Getting all candidates..."
     period_candidate_point = pd.DataFrame(t)
     period_candidate_point = period_candidate_point.nlargest(8,'magnitude')
+
 
     lag = range(0,n-1)
     autocorr = [np.correlate(data_value, np.roll(data_value, -i))[0] / data_value.size for i in lag]
@@ -51,7 +53,10 @@ def period_detect(df, fs=1440, segment_method = "topdownsegment"):
 
 
     final_all_period = []
-    for period_temp in period_candidate_point['period']:
+    print "Checking all candidates of period..."
+    print "There are %s candidates"%(len(period_candidate_point['period']))
+    for idx, period_temp in enumerate(period_candidate_point['period']):
+        print "Candidate %s: %s"%(idx+1,period_temp)
         startpoint = (int)(period_temp * fs)
         temp = autocorr[startpoint]
 
@@ -109,6 +114,7 @@ def period_detect(df, fs=1440, segment_method = "topdownsegment"):
             if ((seg_index >= 2) and (seg_index <= len(segments) - 2)):
                 final_period = segments[seg_index][2]
                 final_all_period.append(final_period + begin_frame)
+    print "Periods: %s"%final_all_period
     return final_all_period
     #tim duoc segment cua diem
 

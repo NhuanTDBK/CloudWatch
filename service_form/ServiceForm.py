@@ -5,9 +5,11 @@ def parse(params):
         new_params['gamma'] = float(params['gamma'])
         new_params['max_anoms'] = float(params['max_anoms'])
         new_params['nu'] = float(params['nu'])
-        new_params['piecewise_median_period'] = int(params["piecewise_median_period_weeks"])
+        # new_params['piecewise_median_period'] = int(params["piecewise_median_period_weeks"])
         new_params['port'] = int(params['port'])
-
+        if params.get('use_period') != u'' :
+            new_params['custom_period'] = float(params['use_period'])
+            new_params['use_period'] = True
         if params['threshold'] != u'':
             new_params['threshold'] = float(params['threshold'])
         else:
